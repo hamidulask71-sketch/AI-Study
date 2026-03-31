@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradient_bg">
+
+    <!-- হেডার সেকশন -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:background="@color/primary_color">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="15dp">
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:text="📚"
+                android:textSize="40dp"
+                android:background="@drawable/circle_bg"
+                android:gravity="center"
+                android:textAlignment="center"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="শিক্ষা সাথী"
+                    android:textSize="24dp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="এআই শিক্ষা সহায়ক সফটওয়্যার"
+                    android:textSize="12dp"
+                    android:textColor="@color/white_70"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ভাষা সিলেক্টর -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/btnBangla"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:text="বাংলা"
+                android:background="@drawable/lang_btn_active"
+                android:textColor="@color/primary_color"
+                android:textSize="12dp"/>
+
+            <Button
+                android:id="@+id/btnEnglish"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:text="English"
+                android:background="@drawable/lang_btn_inactive"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                android:layout_marginStart="10dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ট্যাব লেআউট -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/tab_bg"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/tabChat"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:text="💬 চ্যাটবট"
+            android:background="@drawable/tab_active"
+            android:textColor="@color/primary_color"
+            android:textSize="12dp"/>
+
+        <Button
+            android:id="@+id/tabMath"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:text="📐 গণিত"
+            android:background="@drawable/tab_inactive"
+            android:textColor="@color/gray"
+            android:textSize="12dp"
+            android:layout_marginStart="5dp"/>
+
+        <Button
+            android:id="@+id/tabDaily"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:text="⭐ ডেইলি"
+            android:background="@drawable/tab_inactive"
+            android:textColor="@color/gray"
+            android:textSize="12dp"
+            android:layout_marginStart="5dp"/>
+    </LinearLayout>
+
+    <!-- কন্টেন্ট এরিয়া -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="15dp">
+
+        <!-- চ্যাট ট্যাব -->
+        <LinearLayout
+            android:id="@+id/chatTab"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/chatRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/chat_bg"
+                android:padding="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:id="@+id/messageInput"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:hint="আপনার প্রশ্ন লিখুন..."
+                    android:background="@drawable/input_bg"
+                    android:padding="12dp"
+                    android:textSize="14dp"/>
+
+                <Button
+                    android:id="@+id/sendBtn"
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
+                    android:text="➤"
+                    android:background="@drawable/send_btn"
+                    android:layout_marginStart="10dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- গণিত ট্যাব -->
+        <LinearLayout
+            android:id="@+id/mathTab"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/mathInput"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:hint="যেমন: (25 + 15) × 2 = ?"
+                android:background="@drawable/input_bg"
+                android:padding="15dp"
+                android:gravity="top"
+                android:textSize="14dp"/>
+
+            <Button
+                android:id="@+id/solveMathBtn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="🧮 সমাধান করুন"
+                android:background="@drawable/solve_btn"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/white"/>
+
+            <LinearLayout
+                android:id="@+id/mathResultLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/result_bg"
+                android:padding="15dp"
+                android:layout_marginTop="15dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📝 সমাধান:"
+                    android:textStyle="bold"
+                    android:textColor="@color/primary_color"/>
+
+                <TextView
+                    android:id="@+id/mathSolution"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ডেইলি ট্যাব -->
+        <LinearLayout
+            android:id="@+id/dailyTab"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/daily_bg"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="⭐"
+                    android:textSize="40dp"
+                    android:textAlignment="center"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="আজকের চ্যালেঞ্জ"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/daily_text"
+                    android:textAlignment="center"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/dailyQuestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="একটি আয়তক্ষেত্রের দৈর্ঘ্য ১০ মিটার এবং প্রস্থ ৫ মিটার। এর ক্ষেত্রফল কত?"
+                    android:textSize="16dp"
+                    android:textColor="@color/daily_text"
+                    android:textAlignment="center"
+                    android:layout_marginTop="15dp"/>
+
+                <Button
+                    android:id="@+id/showAnswerBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:text="📖 উত্তর দেখুন"
+                    android:background="@drawable/daily_btn"
+                    android:layout_marginTop="15dp"/>
+
+                <LinearLayout
+                    android:id="@+id/answerLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/white"
+                    android:padding="15dp"
+                    android:layout_marginTop="15dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✅ উত্তর:"
+                        android:textStyle="bold"
+                        android:textColor="@color/daily_text"/>
+
+                    <TextView
+                        android:id="@+id/dailyAnswer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/newDailyBtn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="🔄 নতুন সমস্যা"
+                android:background="@drawable/new_btn"
+                android:layout_marginTop="15dp"/>
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- ফুটার -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:text="📚 শিক্ষা সাথী - এআই শিক্ষা সহায়ক"
+        android:textSize="10dp"
+        android:textAlignment="center"
+        android:background="@color/footer_bg"
+        android:gravity="center"
+        android:textColor="@color/gray"/>
+
+</LinearLayout>
